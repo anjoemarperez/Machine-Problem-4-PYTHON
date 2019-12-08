@@ -1,0 +1,29 @@
+# Machine-Problem-4-PYTHON
+
+import math
+import matplotlib.pyplot as plt
+import numpy as np
+
+h = float(input('Please enter the initial height (m): '))
+v = float(input('Please enter the magnitude of the velocity (m/s): '))
+a = float(input('Please enter the angle (deg): '))
+r = math.radians(a)
+x = float(input('Please enter the x-component of the acceleration: '))
+y = float(input('Please enter the y-component of the acceleration: '))
+f = (2 * (v*math.sin(r) + h )) / - y
+t = np.arange(100)
+
+def X(t):
+    return v*math.cos(r) * t + (x*(t**2))/2
+def Y(t):
+    return v*math.sin(r) * t + (y*(t**2))/2
+
+tmax = (v*math.sin(r))/-y
+ymax = (v*math.sin(r)*tmax) + (y*tmax**2)/2
+total = ymax + h
+
+fig = plt.figure(figsize=(10,5))
+plt.plot (X(t), Y(t))
+plt.ylabel('y-axis')
+plt.xlabel('x-axis')
+plt.grid()
